@@ -174,7 +174,7 @@ Inspirado em soluções de ponta (como o **UPS ORION**), este estudo prova que a
 
 ```bash
 # Clonar repositório
-git clone https://github.com/usuario/rota-inteligente.git
+git clone https://github.com/ricardomacielalonso/Rota-Inteligente.git
 cd rota-inteligente
 
 # Instalar dependências
