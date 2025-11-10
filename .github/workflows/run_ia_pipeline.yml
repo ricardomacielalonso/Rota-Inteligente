@@ -1,0 +1,33 @@
+name: Rota Inteligente - Execução Automática
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:  # permite rodar manualmente também
+
+jobs:
+  execute-ia:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Clonar o repositório
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: ⚙️ Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: ▶️ Executar o script principal
+        run: python main.py
+
+      - name: 📊 Publicar resultados (gráficos)
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados-outputs
+          path: outputs/
